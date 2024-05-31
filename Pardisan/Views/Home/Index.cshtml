@@ -1,0 +1,243 @@
+﻿@model Pardisan.ViewModels.HomeVM
+@using DNTPersianUtils.Core;
+@{
+    ViewData["Title"] = "انبوه سازان پردیسان";
+
+}
+@section styles{
+<link rel="stylesheet" href="/css/magnific-popup.css">
+}
+@section scripts{
+       <script src="/js/magnific-popup.min.js"></script>
+    @*<script src="~/lib/Admin/assets/js/custom/documentation/general/sweetalert.js"></script>
+        <script src="~/js/bootstrap-tagsinput.js" asp-append-version="true"></script>
+        <script src="~/Landing/upsertMessage.js" asp-append-version="true"></script>
+        <script src="~/date/persianDatepicker.js"></script>
+        <script src="~/js/bootstrap-tagsinput.js" asp-append-version="true"></script>
+        <script src="~/admin/vendors/lightbox/jquery.magnific-popup.min.js"></script>
+        <script src="~/lib/momentjs/moment.min.js" asp-append-version="true"></script>
+        <script src="~/admin/vendors/dataTable/jquery.dataTables.min.js"></script>
+        <script src="~/admin/vendors/dataTable/dataTables.bootstrap4.min.js"></script>
+        <script src="~/admin/vendors/dataTable/dataTables.responsive.min.js"></script>
+        <script src="~/js/sweetalert.js"></script>*@
+
+    <script>
+        //$("#StartDate, .StartDate").persianDatepicker();
+        //$("#ProjectCompletionDate, .ProjectCompletionDate").persianDatepicker();
+        let counter = 0;
+        let clearId = setInterval(function () {
+            if (counter == 100) {
+                clearInterval(clearId);
+            }
+            $('.owl-stage-outer').css("height", "100%");
+            //$('.owl-stage-outer').css("background", "rgb(0, 110, 111)");
+            //$('.owl-stage').css("background", "rgb(0, 110, 111)");
+            counter++;
+        }, 100);
+    </script>
+
+}
+
+<div class="pardisan-storyy">
+    <div class="pardisan-story" id="pardisan-story">
+    </div>
+  </div>
+<div id="owl-mainslider" class="owl-carousel owl-theme text-center">
+    @foreach (var item in Model.Slider)
+    {
+        <div class="item">
+            <a href="/project/index"><img style="height:100%!important;max-height: 650px;" src="@item.Url" class="img-fluid" /></a>
+        </div>
+    }
+    @*<div class="item">
+    <img src="Img/slide8.jpg" class="img-fluid" />
+    </div>*@
+</div>
+<div class="container mt-3">
+    <div class="row  bg-warning  px-5 py-3 radius10">
+        <div class="col-lg-9 text-dark  text-lg-right text-center">
+            <h5 style="color:#000" class="IRANSans_Medium">"@Model.Content.UnderSliderText"</h5>
+        </div>
+        <div class="col-lg-3 text-dark text-lg-left text-center mt-lg-0 mt-3">
+            <a href="tel:@Model.Content.Cellphone" class="btn btn-pardisan radius20 text-white IRANSans_Medium">تماس بگیرید : @Model.Content.Cellphone</a>
+        </div>
+        
+    </div>
+    
+</div>
+
+@*<div id="owl-mainslider" style="max-height:650px;" class="owl-carousel owl-theme text-center">
+    @foreach (var item in sliders)
+    {
+
+        <div class="item">
+            <img style="height:100%!important;max-height: 650px;" src="@item.Url" class="pardisan-slide" />
+            <img src="@item.Url" class="pardisan-slide" />
+        </div>
+    }
+</div>*@
+
+<section class="container mt-4 po2 hot-posts text-center">
+
+    <h3 class="mt-2 mb-3 bt-center text-center IRANSans_Bold"> هلدینگ پردیسان</h3>
+    <div class="row pt-3">
+        @foreach (var item in Model.Holding)
+        {
+
+            <div class="col-xl-5 col-md-6 mb-5 mx-auto">
+                <a asp-controller="Holding" asp-action="details" asp-route-id="@item.Id" class="grid">
+                    <figure class="effect-ruby ">
+                        <img src="@item.Image" />
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a style="color: #000" asp-controller="Holding" asp-action="details" asp-route-id="@item.Id">
+                    <h3 style="font-weight: 600">@item.Title</h3>
+                </a>
+            </div>
+        }
+    </div>
+
+
+</section>
+
+<section class="container mt-5 po2 hot-posts text-center">
+
+    <h3 class="mt-2 mb-3 bt-center text-center IRANSans_Bold">@Model.Content.titleForProject</h3>
+    <div class="row pt-3">
+        @foreach (var item in Model.Estates)
+        {
+
+            <div class="col-xl-3 col-md-6 mb-4 smallerView">
+                <a asp-controller="Project" asp-action="details" asp-route-id="@item.Id" class="grid">
+                    <figure class="effect-ruby">
+                        <img src="https://api.pardisan-mc.com@(item.Image)" />
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a style="color: #000" asp-controller="Project" asp-action="details" asp-route-id="@item.Id">
+                    <h3 style="font-weight: 600">@item.Title</h3>
+                    <span>@item.Address</span>
+                </a>
+            </div>
+        }
+    </div>
+    <a href="/project/index" class="btn btn-pardisan text-light">مشاهده ادامه</a>
+
+</section>
+
+<section class="container my-5">
+    <div class="row bg-light banner-bui text-white radius15" style="background:url('@(Model.Content.ImageDocs)')">
+        
+        <div class="col-lg-8 pt-5 px-5 pb-xl-0 pb-5">
+
+            <p class="text-justify">@Html.Raw(  @Model.Content.StaticContent)</p>
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6 stats d-flex flex-column p-2">
+                    <div class="d-flex flex-row">
+                        <i class="fal fa-building  text-warning" aria-hidden="true"></i>
+                        <div class="counting" data-count=@Model.Content.DonePro>0</div>
+                    </div>
+                    <h5>پروژه های تکمیل شده</h5>
+                </div>
+                <div class="col-md-4 col-sm-6 stats d-flex flex-column p-2">
+                    <div class="d-flex flex-row">
+                        <i class="fal fa-trophy text-warning" aria-hidden="true"></i>
+                        <div class="counting" data-count=@Model.Content.CurrentPro></div>
+                    </div>
+                    <h5> پروژه های فعلی </h5>
+                </div>
+                <div class="col-md-4 stats d-flex flex-column p-2">
+                    <div class="d-flex flex-row">
+                        <i class="fal fa-thumbs-up text-warning" aria-hidden="true"></i>
+                        <div class="counting" data-count=@Model.Content.SaieldUnits>0</div>
+                    </div>
+                    <h5>واحد های تحویل داده شده</h5>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 d-lg-block d-none">
+            <img  class="~/img-fluid pt-4 pl-4" />
+        </div>
+    </div>
+
+</section>
+
+<section class="container mt-5 po2 hot-posts text-center">
+    <h3 class="mt-2 mb-3 bt-center text-center IRANSans_Bold">@Model.Content.titleForVideos</h3>
+    <div class="row pt-3">
+        @foreach (var item in Model.Aparat)
+        {
+
+            <div class="col-lg-4 col-md-4 col-sm-12 mb-3 mb-md-0" style="border-radius:8px">
+                @Html.Raw(item.AparatLink)
+            </div>
+        }
+
+    </div>
+    <a href="/Aparat/index" class="btn btn-pardisan text-light mt-3">مشاهده ادامه</a>
+</section>
+@*<section class="container blog-grid mt-5">
+        <div class="d-flex flex-row my-3">
+
+        </div>
+        <div class="row">
+        </div>
+    </section>*@
+
+@if (Model.Content.CounselingTitle != null)
+{
+    <section class="container-fluid my-4 py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 p-3">
+
+                    <h3 class="IRANSans_Bold mb-2">@Model.Content.CounselingTitle</h3>
+                    <p class="text-justify">
+                        @Model.Content.CounselingContent
+                    </p>
+                    <a href="tel:@Model.Content.Cellphone" class="btn btn-pardisan text-white radius10 py-2 px-4 my-3"><i class="fal fa-phone ml-2"></i>تماس بگیرید ! </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+}
+<section class="container blog-grid mt-5">
+    <div class="d-flex flex-row my-3">
+        <div class="Dottedstocol ml-3"></div>
+        <div class="singletitle">
+            <span>@Model.Content.titleForBlogs</span>
+        </div>
+    </div>
+    <div id="owl-blog" class="owl-carousel owl-theme text-right ">
+        @foreach (var item in Model.Blogs.Blog)
+        {
+            <div class="m-3 blog_style">
+                <a asp-controller="Blog" asp-action="details" asp-route-id="@item.Id"><img class="card-img-top" src="@item.Image" alt="@item.Title"></a>
+                <div class="card-body">
+                    <h3 class="mb-2" style="height: 70px;"><a class="text-dark" asp-controller="Blog" asp-action="details" asp-route-id="@item.Id">@item.Title</a></h3>
+                    <p class="mb-2">
+                        @item.Describtion
+                    </p>
+                    <span><a href="#">@item.CategoryTitle</a></span>
+                    <div class="d-flex flex-row justify-content-between mt-2">
+                        <div>
+                            <span style="font-size:12px" ><i class="fal fa-clock ml-2"></i>@item.CreatedAt.ToPersianDateTextify(true)</span>
+                        </div>
+                        <a asp-controller="Blog" asp-action="details" asp-route-id="@item.Id">ادامه مطلب »</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>
+
+
+
