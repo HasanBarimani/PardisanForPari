@@ -19,7 +19,7 @@ namespace Pardisan.Areas.Api
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly    SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ApplicationDbContext _context;
         private readonly IJwtManager _jwtManager;
