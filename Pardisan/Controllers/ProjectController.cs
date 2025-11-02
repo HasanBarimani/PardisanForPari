@@ -20,16 +20,17 @@ namespace Pardisan.Controllers
         public ProjectController(IEstateRepository estateRepository, IHelperService helperService)
         {
             _estateRepository = estateRepository;
-
             _helperService = helperService;
         }
 
         public async Task<IActionResult> Index()
         {
             string url = "https://api.pardisan-mc.com/api/estateforwebapp/getall";
+            var dataFromDb = await _estateRepository.GetAllForView();
 
             var data = await _helperService.CallApi<List<EstateFroShow>>(url, "GET");
-            return View(data.data.OrderByDescending(w => w.Code).ToList());
+            var datainlocalDb=_estateRepository.GetAllForView();
+            return View(datainlocalDb);
         }
 
         public async Task<IActionResult> Details(int id)

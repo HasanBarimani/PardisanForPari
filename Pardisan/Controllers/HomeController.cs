@@ -71,10 +71,10 @@ namespace Pardisan.Controllers
             };
             var blogs = await _blogRepository.GetAllBlog();
 
-            string url = "https://api.pardisan-mc.com/api/estateforwebapp/getall";
+            //string url = "https://api.pardisan-mc.com/api/estateforwebapp/getall";
 
-            var estates = await _helperService.CallApi<List<EstateFroShow>>(url, "GET");
-            //var estates = await _estateRepository.GetAllForView();
+            //var estates = await _helperService.CallApi<List<EstateFroShow>>(url, "GET");
+            var estates = await _estateRepository.GetAllForView();
             var holding = await _holdingRepository.GetAll();
             var aparat = await _aparatRepository.GetAll();
             var sliders = _context.Sliders.Where(x => x.IsActive.Value).AsNoTracking();
@@ -82,7 +82,7 @@ namespace Pardisan.Controllers
             var vm = new HomeVM
             {
                 Blogs = blogs.Data,
-                Estates = estates.data.OrderByDescending(w=> w.Code).Take(16).ToList(),
+                Estates = estates.Data.OrderByDescending(w=> w.Code).Take(16).ToList(),
                 Holding = holding.Data,
                 Aparat = aparat.Data.Take(3).ToList(),
                 Content = set,
@@ -158,15 +158,16 @@ namespace Pardisan.Controllers
                 _context.Messages.Add(massages);
                 _context.SaveChanges();
                 var blogs = await _blogRepository.GetAllBlog();
-                //var estates = await _estateRepository.GetAll();
+               var estates = await _estateRepository.GetAll();
 
-                string url = "https://api.pardisan-mc.com/api/estateforwebapp/getall";
+                //string url = "https://api.pardisan-mc.com/api/estateforwebapp/getall";
 
-                var estates = await _helperService.CallApi<List<EstateFroShow>>(url, "GET");
+                //var estates = await _helperService.CallApi<List<EstateFroShow>>(url, "GET");
+
                 var vm = new HomeVM
                 {
                     Blogs = blogs.Data,
-                    Estates = estates.data.Take(16).ToList()
+                    Estates = estates.Data.Take(15).ToList()
                 };
                 return new JsonResult(vm);
             }

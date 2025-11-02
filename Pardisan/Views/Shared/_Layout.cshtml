@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>پردیسان - @ViewData["Title"]</title>
+    <title>حرارت گستر بهشهر - @ViewData["Title"]</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/staticcopy/swiper-bundle.min.css" rel="stylesheet" />
@@ -21,7 +21,7 @@
     <link href="~/Css/owl.carousel.min.css" rel="stylesheet" />
     <link href="~/Css/owl.theme.min.css" rel="stylesheet" />
     <link href="~/Css/hoverimg.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="/Img/pardisanfavicon.png" />
+    <link rel="shortcut icon" href="/Img/logo.png" />
     @RenderSection("styles", required: false)
     <script type="text/javascript">window.RAYCHAT_TOKEN = "3fc1bd4d-c1bf-4431-8e89-7769bfeb2fc5"; (function () { d = document; s = d.createElement("script"); s.src = "https://widget-react.raychat.io/install/widget.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
 
@@ -64,7 +64,7 @@
                                 <ul class="menu">
                                     <li class="ml-3 test">
                                         <a href="#" class="current logo">
-                                            <img src="~/img/niknet-white.png" style="max-width: 13vw;" />
+                                            <img src="~/img/logoTR.png" style="max-width: 13vw;" />
                                         </a>
                                     </li>
 
@@ -118,7 +118,7 @@
 
                             </div>*@
                             <div class="is-show mobile-nav-button">
-                                <img src="~/img/niknet-white.png" style="max-width: 13vw;" />
+                                <img src="~/img/logoTR.png" style="max-width: 13vw;" />
                                 <a id="of-trigger" class="icon-wrap pr-3" href="#"> <i class="fal fa-bars"></i></a>
                             </div>
 
@@ -154,7 +154,7 @@
             </div>*@
         </div>
 
-        <a class="btn upsert-request-btn d-flex align-items-center" style="right:10px; direction: rtl;" href="tel: @content.Data.Phone">
+        <a class="btn upsert-request-btn d-flex align-items-center" style="right:10px; bottom:50px; direction: rtl;" href="tel: @content.Data.Phone">
             <i class='fal fa-phone' style='font-size:36px; margin-right: 5px'></i>
             <span>تماس با ما</span>
         </a>
@@ -172,7 +172,7 @@
         <footer class="mt-5 pt-4 pb-4 ">
             <div class="container">
                 <div class="row">
-                    <div class="footer-icon-img mx-2"><img src="~/img/logo3New.png" style="width:150px !important" /></div>
+                    <div class="footer-icon-img mx-2"><img src="~/img/whitelogo.png" style="width:150px !important" /></div>
                 </div>
                 <div class="row mt-3 px-3 ">
                     <div class="col-lg-3 px-md-5">
@@ -233,13 +233,13 @@
                     </div>
 
                 </div>
-                <div class="row">
+               @*  <div class="row">
 
                     <div class="container-fluid">
                         <div class="copyright" style="background: #264f71 !important;"> <u><a href="https://niknet.co/">شرکت نیک نت</a></u> | تمام حقوق محفوظ است</div>
                     </div>
 
-                </div>
+                </div> *@
             </div>
         </footer>
         <div class="progress-wrap" style="display:none">
@@ -257,7 +257,12 @@
         <script src="~/js/owl.carousel.js"></script>
         <script src="~/js/Custom.js"></script>
         <script src="~/js/Menu.js"></script>
-
+        <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+        <script>
+            Weglot.initialize({
+                api_key: 'wg_cd90411a93855ff6a0f5709701f648f45'
+            });
+        </script>
         @RenderSection("modals", required: false)
 
         @RenderSection("scripts", required: false)

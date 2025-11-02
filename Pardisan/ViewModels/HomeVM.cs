@@ -13,7 +13,7 @@ namespace Pardisan.ViewModels
     public class HomeVM
     {
         public BlogIndexViewModel Blogs { get; set; }
-        public List<EstateFroShow> Estates { get; set; }
+        public List<EstateVM> Estates { get; set; }
         public List<HoldingVM> Holding { get; set; }
         public List<AparatVM> Aparat { get; set; }
         public HomeMessageVM messageVM { get; set; }

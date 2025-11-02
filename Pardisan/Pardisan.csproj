@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>aspnet-Pardisan-5005A3B8-B5F9-45A6-8E31-3D9993FA9C1D</UserSecretsId>
   </PropertyGroup>
 
@@ -13,32 +13,42 @@
   </ItemGroup>
 
 
-  <ItemGroup>
-    <PackageReference Include="DNTPersianUtils.Core" Version="5.4.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.26" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.26" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.26" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.30" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.26" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.26" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.26">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
-	  <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.8" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
-    <PackageReference Include="RestSharp" Version="110.2.0" />
-	  <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
-	  <PackageReference Include="SixLabors.ImageSharp.Web" Version="1.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.3.1" />
-    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-    <PackageReference Include="Unchase.Swashbuckle.AspNetCore.Extensions" Version="2.6.12" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DNTPersianUtils.Core" Version="5.4.5" />
+
+		<!-- Microsoft + EF Core packages updated to .NET 6 -->
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.33" />
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.33" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.33" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.33" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.33" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.33" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.33" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.33">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+
+		<!-- Matching Razor + Scaffolding tools -->
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.33" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0" />
+
+		<!-- Hosting helpers (keep at 6.x) -->
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+
+		<!-- Third-party packages -->
+		<PackageReference Include="RestSharp" Version="112.0.0" />
+		<PackageReference Include="SixLabors.ImageSharp" Version="3.1.11" />
+		<PackageReference Include="SixLabors.ImageSharp.Web" Version="3.1.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.6.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.6.2" />
+
+		<!-- System libraries (built into .NET 6) -->
+		<!-- Remove redundant ones like System.Net.Http (already included) -->
+		<PackageReference Include="System.Drawing.Common" Version="4.7.3" />
+	</ItemGroup>
+
 
 
 </Project>

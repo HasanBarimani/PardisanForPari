@@ -46,7 +46,7 @@ namespace Pardisan.Extention
         {
             try
             {
-                System.Drawing.ImageConverter converter = new System.Drawing.ImageConverter();
+                ImageConverter converter = new ImageConverter();
                 using (MemoryStream memstr = new MemoryStream(byteArrayIn))
                 {
                     using (var image = Image.FromStream(memstr))

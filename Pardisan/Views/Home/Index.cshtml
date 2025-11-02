@@ -1,7 +1,7 @@
 ﻿@model Pardisan.ViewModels.HomeVM
 @using DNTPersianUtils.Core;
 @{
-    ViewData["Title"] = "انبوه سازان پردیسان";
+    ViewData["Title"] = "حرارت گستر بهشهر";
 
 }
 @section styles{
@@ -79,7 +79,7 @@
 
 <section class="container mt-4 po2 hot-posts text-center">
 
-    <h3 class="mt-2 mb-3 bt-center text-center IRANSans_Bold"> هلدینگ پردیسان</h3>
+    <h3 class="mt-2 mb-3 bt-center text-center IRANSans_Bold"> هلدینگ حرارت گستر بهشهر</h3>
     <div class="row pt-3">
         @foreach (var item in Model.Holding)
         {
@@ -131,31 +131,36 @@
 <section class="container my-5">
     <div class="row bg-light banner-bui text-white radius15" style="background:url('@(Model.Content.ImageDocs)')">
         
-        <div class="col-lg-8 pt-5 px-5 pb-xl-0 pb-5">
+        <div class="col-lg-12 pt-5 px-5 pb-xl-0 pb-5">
 
             <p class="text-justify">@Html.Raw(  @Model.Content.StaticContent)</p>
             <div class="row">
 
                 <div class="col-md-4 col-sm-6 stats d-flex flex-column p-2">
                     <div class="d-flex flex-row">
-                        <i class="fal fa-building  text-warning" aria-hidden="true"></i>
-                        <div class="counting" data-count=@Model.Content.DonePro>0</div>
+                        <i class="fal fa-solid fa-dumpster-fire" aria-hidden="true"></i>
+                        <div class="counting"> ایستگاه CGS</div>
                     </div>
-                    <h5>پروژه های تکمیل شده</h5>
+                    <h5>
+                        ایستگاههای CGS جهت کاهش فشار گاز از 1000Psi-1400 تا حد فشار گاز ورودی به شهر حدود 250Psi.
+                    </h5>
                 </div>
                 <div class="col-md-4 col-sm-6 stats d-flex flex-column p-2">
                     <div class="d-flex flex-row">
-                        <i class="fal fa-trophy text-warning" aria-hidden="true"></i>
-                        <div class="counting" data-count=@Model.Content.CurrentPro></div>
+                        <i class="fal fa-solid fa-dumpster-fire" aria-hidden="true"></i>
+                        <div class="counting">ایستگاه PCS</div>
                     </div>
-                    <h5> پروژه های فعلی </h5>
+                    <h5>
+                        ایستگاه های کنترل فشار جهت کنترل و تنظیم فشار فی ما بین خطوط انتقال گاز استفاده می شوند.
+
+                    </h5>
                 </div>
                 <div class="col-md-4 stats d-flex flex-column p-2">
                     <div class="d-flex flex-row">
-                        <i class="fal fa-thumbs-up text-warning" aria-hidden="true"></i>
-                        <div class="counting" data-count=@Model.Content.SaieldUnits>0</div>
+                        <i class="fal fa-solid fa-dumpster-fire" aria-hidden="true"></i>
+                        <div class="counting" >ایستگاه CGS-TBS</div>
                     </div>
-                    <h5>واحد های تحویل داده شده</h5>
+                    <h5>این ایستگاه ها جهت کاهش فشار گاز از (1400-1000)psi به میزان قابل عبور در لوله کشی گاز شهری (معمولا 60psi ) که جهت مصارف کم کاربرد دارند.</h5>
                 </div>
             </div>
 
